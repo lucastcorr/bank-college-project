@@ -1,30 +1,31 @@
 import { AccountRepository } from "../repositories/account-repository"
+import { BankEntity } from "./bank-entity"
 import { UserEntity } from "./user-entity"
 
 interface AccountInterface {
   balance: number
   ag: number
-  acc: number
   digit: number
   createdAt: Date
   user: UserEntity
+  bank: BankEntity
 }
 
 export class AccountEntity implements AccountRepository {
   balance: number
   ag: number
-  acc: number
   digit: number
   createdAt: Date
   user: UserEntity
+  bank: BankEntity
   
   constructor(data: AccountInterface) {
     this.balance = data.balance
     this.ag = data.ag
-    this.acc = data.acc
     this.digit = data.digit
     this.createdAt = data.createdAt
     this.user = data.user
+    this.bank = data.bank
   }
 
   deposit(amount: number) {
