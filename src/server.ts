@@ -1,15 +1,15 @@
-import express from 'express'
-import { routes } from './routes/routes'
-import { PrismaClient } from '@prisma/client'
+import fastify from 'fastify'
+import { appRoutes } from './routes/routes'
 
-const app = express()
+export const app = fastify()
 
-export const prisma = new PrismaClient()
+app.register(appRoutes)
 
-app.use('/', routes)
-
-app.listen(3000, () => {
-  console.log('...Server Running! 🚀')
+app.listen({
+	host: '0.0.0.0',
+	port: 3000,
+}).then(() => {
+	console.log('HTTP Server Running!🚀')
 })
 
 module.exports = app

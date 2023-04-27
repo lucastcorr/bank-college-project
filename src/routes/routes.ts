@@ -1,10 +1,11 @@
-import express from 'express'
+import { FastifyInstance} from 'fastify'
 import { accountRoutes } from './account-routes'
 import { bankRoutes } from './bank-routes'
 import { userRoutes } from './user-routes'
 
-export const routes = express.Router()
+export async function appRoutes(app: FastifyInstance) {
 
-routes.use('/account', accountRoutes)
-routes.use('/bank', bankRoutes)
-routes.use('/user', userRoutes)
+  app.register(accountRoutes)
+  app.register(bankRoutes)
+  app.register(userRoutes)
+}

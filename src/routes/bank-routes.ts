@@ -1,8 +1,24 @@
-import { Router } from 'express';
+import { FastifyInstance } from 'fastify';
 
-export const bankRoutes = Router();
-
-bankRoutes.get('/', (req, res) => {
-
-  return 123
-})
+export async function bankRoutes(appRoutes: FastifyInstance) {
+  appRoutes.post('/deposit', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.post('/withdraw', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.get('/balance', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.get('/user', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.post('/transfer', (req, res) => {
+    return 123
+  })
+  
+}

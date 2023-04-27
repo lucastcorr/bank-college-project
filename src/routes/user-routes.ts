@@ -1,9 +1,24 @@
-import { Router } from 'express';
+import { FastifyInstance } from 'fastify';
 
-export const userRoutes = Router();
-
-userRoutes.get('/', (req, res) => {
-  console.log('Testing')
-
-  return res.status(200).send({ message: 'Testing' })
-})
+export async function userRoutes(appRoutes: FastifyInstance) {
+  appRoutes.post('/deposit', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.post('/withdraw', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.get('/balance', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.get('/user', (req, res) => {
+    return 123
+  })
+  
+  appRoutes.post('/transfer', (req, res) => {
+    return 123
+  })
+  
+}
