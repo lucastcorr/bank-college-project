@@ -6,6 +6,4 @@ interface CreateAccountServiceRequest {
 
 export async function createAccountService({
   ag,
-}: CreateAccountServiceRequest) {
-  const emailAlreadyExists = prisma.account
-}
+}: CreateAccountServiceRequest) {}

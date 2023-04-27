@@ -2,7 +2,7 @@ import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 import { makeSearchUserService } from '../../services/factories/user-factory/make-search-user-service'
 
-export async function registerUser(request: FastifyRequest, reply: FastifyReply) {
+export async function searchUser(request: FastifyRequest, reply: FastifyReply) {
   const registerBodySchema = z.object({
     email: z.string().email(),
 	})

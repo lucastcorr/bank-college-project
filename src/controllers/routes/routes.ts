@@ -1,11 +1,16 @@
 import { FastifyInstance} from 'fastify'
-import { accountRoutes } from './account-routes'
-import { bankRoutes } from './bank-routes'
-import { userRoutes } from './user-routes'
+import { registerUser } from '../user-controllers/register-user-controller'
+import { searchUser } from '../bank-controllers/search-user-controller'
 
 export async function appRoutes(app: FastifyInstance) {
+  // BANK ROUTES
+  app.post('/user', registerUser)
+  app.get('/user', searchUser)
 
-  app.register(accountRoutes)
-  app.register(bankRoutes)
-  app.register(userRoutes)
+  // USER ROUTES
+  // app.post('/create', registerUser)
+
+  // ACCOUNT ROUTES
+  // app.post('/create', registerUser)
+
 }

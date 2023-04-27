@@ -11,5 +11,3 @@ app.listen({
 }).then(() => {
 	console.log('HTTP Server Running!🚀')
 })
-
-module.exports = app
