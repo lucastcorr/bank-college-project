@@ -1,9 +1,6 @@
-import { prisma } from "../../lib/prisma"
+import { AccountRepository } from "../../repositories/account-repository";
 
-interface CreateAccountServiceRequest {
-  ag: number
+export class CreateAccountService {
+  constructor(private accountRepository: AccountRepository) {}
+
 }
-
-export async function createAccountService({
-  ag,
-}: CreateAccountServiceRequest) {}
