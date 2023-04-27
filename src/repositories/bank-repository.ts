@@ -1,5 +1,6 @@
-import { AccountEntity } from "../entities/account-entity";
+import { Prisma, User } from "@prisma/client";
 
 export interface BankRepository {
-  getAccount(ag: number, digit: number): number // Need to be changed for AccountEntity in the future
+  create(data: Prisma.UserCreateInput): Promise<User>
+  findByEmail(email: string): Promise<User | null>
 }

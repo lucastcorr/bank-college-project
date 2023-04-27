@@ -1,5 +1,5 @@
 import { User } from "@prisma/client"
-import { UserRepository } from "../../repositories/user-repository"
+import { BankRepository } from "../../repositories/bank-repository"
 
 interface RegisterUserServiceRequest {
   name: string
@@ -13,7 +13,7 @@ interface RegisterUserServiceResponse {
 }
 
 export class RegisterUserService {
-  constructor(private userRepository: UserRepository) {}
+  constructor(private bankRepository: BankRepository) {}
 
   async executeRegisterUserService({
     name,
@@ -21,13 +21,13 @@ export class RegisterUserService {
     document,
     phone,
   }: RegisterUserServiceRequest): Promise<RegisterUserServiceResponse> {
-    const emailAlreadyExists = await this.userRepository.findByEmail(email)
+    const emailAlreadyExists = await this.bankRepository.findByEmail(email)
   
     if (emailAlreadyExists) {
       throw new Error()
     }
   
-    const user = await this.userRepository.create({
+    const user = await this.bankRepository.create({
         name,
         email,
         document,
