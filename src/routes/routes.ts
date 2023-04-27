@@ -7,4 +7,4 @@ export const routes = express.Router()
 
 routes.use('/account', accountRoutes)
 routes.use('/bank', bankRoutes)
-routes.use('/bank', userRoutes)
+routes.use('/user', userRoutes)
